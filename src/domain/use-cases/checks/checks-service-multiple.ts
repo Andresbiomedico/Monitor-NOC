@@ -3,20 +3,24 @@ import { LogEntity, LogSeverityLevel } from '../../entities/log.entity';
 import { LogRepository } from "../../repository/log.repository";
 import { basename } from 'path';
 
-interface CheckServiceUseCase {
+interface CheckServiceMultipleUseCase {
   execute(url: string): Promise<boolean>;
 }
 type SuccessCallBack = () => void;
 type ErrorCallBack = (error: string) => void;
-export class CheckService implements CheckServiceUseCase {
+export class CheckServiceMultiple implements CheckServiceMultipleUseCase {
 
   constructor(
-    private readonly logRepository: LogRepository,
+    private readonly logRepository: LogRepository[],
     private readonly successCallBack: SuccessCallBack,
     private readonly errorCallBack: ErrorCallBack
   ) { }
 
-
+  private callLogs(log:LogEntity){
+    this.logRepository.forEach(logRepository => {
+      logRepository.saveLog(log);
+    })
+  }
   async execute(url: string): Promise<boolean> {
     const className = basename(__filename);
     try {
@@ -30,13 +34,13 @@ export class CheckService implements CheckServiceUseCase {
         level:LogSeverityLevel.low,
         origin:className
       });
-      this.logRepository.saveLog(log);
+      this.callLogs(log);
       this.successCallBack();
       return true
     } catch (error) {
       const errorMessage = `${url} is not ok error: ${error}`
       const log = new LogEntity({message:errorMessage, level:LogSeverityLevel.high,origin:className});
-      this.logRepository.saveLog(log);
+      this.callLogs(log);
       this.errorCallBack(errorMessage);
       return false
     }

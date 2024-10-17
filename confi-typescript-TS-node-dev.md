@@ -16,7 +16,7 @@ npx tsc --init --outDir dist/ --rootDir src
 ## 3. Crear scripts para dev, build y start
 
 ``` bash
-"dev": "tsnd --respawn --clear src/app.ts",
+  "dev": "tsnd --respawn --clear src/app.ts",
   "build": "rimraf ./dist && tsc",
   "start": "npm run build && node dist/app.js"
 ```
