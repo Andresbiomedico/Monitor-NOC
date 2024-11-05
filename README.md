@@ -19,4 +19,4 @@ El objetivo es crear una serie de tareas usando aquitectura limpia con TypeScrip
 ```
 
 ## Obtener Gmail Key
-    [Google AppPasswords](https://myaccount.google.com/u/0/apppasswords)
+    [Google AppPasswords](https://myaccount.google.com/u/0/apppasswords).
