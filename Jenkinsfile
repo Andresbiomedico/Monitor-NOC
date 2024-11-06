@@ -13,7 +13,7 @@ pipeline{
         }
         stage('Deploy') {
             steps {
-                echo 'ETAPA DEPLOY no disponible Jenkinsfile'
+                echo 'ETAPA DEPLOY no disponible'
             }
         }
     }
