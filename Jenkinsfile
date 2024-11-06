@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage('Build') {
             steps {
-                echo 'ETAPA BUILD no disponible'
+                echo 'ETAPA 1 BUILD no disponible'
             }
         }
         stage('Test') {
