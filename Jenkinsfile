@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Test') {
             steps {
-                echo 'ETAPA 2 TEST no disponible'
+                echo 'ETAPA 2 TEST no disponibles'
             }
         }
         stage('Deploy') {
