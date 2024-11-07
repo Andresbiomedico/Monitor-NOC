@@ -8,12 +8,12 @@ pipeline{
         }
         stage('Test') {
             steps {
-                echo 'ETAPA 2 TEST no disponible'
+                echo 'ETAPA 2 TEST no disponibles'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'ETAPA 3 DEPLOY no disponible'
+                echo 'ETAPA 3 DEPLOY no disponibles'
             }
         }
     }
